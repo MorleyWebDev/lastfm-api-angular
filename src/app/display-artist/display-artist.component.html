@@ -1,0 +1,19 @@
+<div *ngIf='searchErrorFound == true && chosenArtistsLen != 3' class="container">
+    <p>Sorry, we couldnt find that artist</p>
+</div>
+
+    <div *ngIf='artist != null 
+    && searchErrorFound == false
+    && chosenArtistsLen < 3'>
+        <h1>{{ artist.name }} <span>{{artist.listeners}} listeners</span></h1>
+        <hr>
+        <p>{{ artist.summary }}</p>
+
+        <img [src]='artist.image' [alt]='artist.name + " - image"'>
+        <br>
+        <br>
+        <button 
+        *ngIf='!exists'
+        (click)='chooseArtist()' 
+        class="btn btn-dark">Add</button>
+    </div>

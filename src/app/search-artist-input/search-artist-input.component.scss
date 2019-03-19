@@ -1,0 +1,30 @@
+#input{
+    background-color: transparent;
+    border-radius: 5px;
+    border:3px white solid;
+    color: white;
+    padding: 6%;
+    min-width: 120%;
+    box-shadow: 1px 1px 1px 1px grey;
+    background: #8c7ae6 url('/assets/img/search.png');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 90%;
+}
+
+#input:focus{
+    border-color: none !important;
+}
+
+#input::placeholder{
+    color: white;
+}
+
+.calcBtn{
+    background-color: #7ac2e6;
+    color: white;
+    padding: 6%;
+    min-width: 160%;
+    box-shadow: 1px 1px 1px 1px grey;
+    border: 3px #8c7ae6 solid;
+}

@@ -1,0 +1,12 @@
+<span *ngIf='chosenArtists.length > 0 && chosenArtists.length != 3'>
+  Nice choice! add {{ 3-chosenArtists.length }} more to calculate your obscurity %
+</span>
+
+<hr *ngIf='chosenArtists.length != 3'>
+
+<div [class.shift]='chosenArtists.length == 3' class="selected-artist-container">
+  <div *ngFor='let artist of chosenArtists; let i = index'>
+    <img [src]='artist.image' style="max-width: 240px">
+  </div>
+</div>
+

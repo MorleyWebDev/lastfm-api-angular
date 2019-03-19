@@ -1,0 +1,46 @@
+
+.shift{
+    position: relative;
+    left: 56%;
+}
+
+hr{
+    border-bottom: 2px solid #8c7ae6
+}
+
+hr, span, button, img{
+    position: relative;
+    top: 1.4rem;
+}
+
+span{
+    font-weight: lighter;
+}
+
+img{
+    border: 3px solid #8c7ae6;
+    margin-bottom: 5px;
+    float: right;
+}
+
+@media only screen and (max-width: 1200px){ 
+    .shift{
+        left: 33%;
+    }
+}
+
+@media only screen and (max-width: 996px){ 
+    img{
+        float: none;
+        left: 16%;
+        top: 80px;
+    }
+    span{
+        top: 75px;
+    }
+    
+    .shift{
+        left: -16%;
+    }
+
+}
