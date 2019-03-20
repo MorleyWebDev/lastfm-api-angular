@@ -8,15 +8,18 @@
           </button>
         </div>
         <div class="modal-body">
-          <p *ngFor='let artist of artists'>
+          <span *ngFor='let artist of artists'>
             {{artist.name}} - <span class="bold">{{ artist.obscurity}}%</span> popularity
-          </p>
-          <h6> Overall Popularity: {{overallObscurity.percentage}} %</h6>
+            <br>
+          </span>
+          <br>
+          <h6>Overall Popularity: {{overallStats.obscurity}} %</h6>
+          <h6>Total Listeners: {{ overallStats.listeners}}</h6>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
-          <button type="button" class="btn btn-primary">View Highscore</button>
+          <button type="button" (click)='reset()' class="btn btn-secondary" data-dismiss="modal">Try Again</button>
+          <!-- <button type="button" class="btn btn-primary">View Highscore</button> -->
         </div>
       </div>
-    </div>
+    </div> 
   </div>

@@ -11,7 +11,7 @@ export class ArtistService {
 
   //get api key from
   //https://www.last.fm/api/account/create
-  apiKey = '';
+  apiKey = '5421292968da1ea7dff6998512c75a8d';
   chosenArtists: ArtistModel[] = [];
   artistSearchPing = new EventEmitter<boolean>();
   

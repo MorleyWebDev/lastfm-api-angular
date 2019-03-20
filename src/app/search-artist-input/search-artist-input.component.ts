@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef, Input } from '@angular/core';
 import { ArtistService } from '../service/artist.service';
 import { ArtistModel } from '../model/artist.model';
+declare var $: any;
 
 @Component({
   selector: 'app-search-artist-input',
@@ -14,6 +15,7 @@ export class SearchArtistInputComponent implements OnInit {
   @Output() artistSearched = new EventEmitter<any>();
   topListeners: number;
   @ViewChild('input') input: ElementRef;
+  
 
   constructor(private artService: ArtistService) { }
 
@@ -25,18 +27,19 @@ export class SearchArtistInputComponent implements OnInit {
       data.artists.artist.forEach((e) =>{
         avgTopListeners += parseInt(e.listeners);
       })
-      this.topListeners = Math.round((avgTopListeners / 40));
+      this.topListeners = Math.round((avgTopListeners / 50));
     })
 
 
     this.artService.artistSearchPing.subscribe((chosen: boolean)=>{
       if(chosen == true){
         this.input.nativeElement.value='';
-        this.input.nativeElement.focus();
+        if(parseInt($(window).width()) > 992){
+          this.input.nativeElement.focus();
+        }
         this.artService.artistSearchPing.emit(false);
       }
     });
-
     this.chosenArtists = this.artService.chosenArtists;
   }
 
@@ -49,7 +52,6 @@ export class SearchArtistInputComponent implements OnInit {
          let image = data.artist.image[5]['#text'];
          let listeners = data.artist.stats.listeners;
          let obscurity = parseInt(((listeners / this.topListeners)*100).toFixed(2));
-
          //remove broken <a> tag at the end of the summary res
          let summary = data.artist.bio.summary.replace(/\<.+/g, "");
          let artist = new ArtistModel(name, image, listeners, obscurity, summary);

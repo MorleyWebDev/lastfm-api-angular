@@ -14,18 +14,28 @@ export class ResultsDisplayComponent implements OnInit {
   constructor(private artService: ArtistService) { }
 
   artists: ArtistModel[] = [];
-  overallObscurity: number = 0;
+  overallStats: {obscurity: number, listeners: number} = {obscurity: 0, listeners: 0}
 
   ngOnInit() {
     this.artService.sendFinalCalc.subscribe((result: ArtistModel[]) => {
       result.forEach(singleartist => {
+        if(singleartist.obscurity > 100) {singleartist.obscurity = 100}
         this.artists.push(singleartist);
-        this.overallObscurity += singleartist.obscurity;
+        this.overallStats.obscurity += singleartist.obscurity;
+        this.overallStats.listeners += Math.round(singleartist.listeners);
       })
-     this.overallObscurity = Math.round(this.overallObscurity /= 3);
-      // this.overallObscurity.toFixed();
+      this.overallStats.obscurity = Math.round(this.overallStats.obscurity /= 3);
       $('#modal').modal();
     })
   }
 
+  reset(){
+    this.artists.length = 0;
+    this.overallStats = {obscurity: 0, listeners: 0}
+    this.artService.chosenArtists.length = 0;
+    this.artService.artistSearched.emit({
+      error: false, 
+      chosenLen: 0 
+    })
+  }
 }
