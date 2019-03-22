@@ -1,0 +1,48 @@
+%homeFonts{
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: lighter;
+}
+
+.header{
+    position: relative;
+    height: 73vh;
+    overflow: hidden;
+}
+
+#headBg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, pink, #8c7ae6);
+    transform: skewY(-9deg);
+    transform-origin: top left;
+}
+
+button{
+    position: absolute;
+    bottom: 10px;
+}
+.textContent{
+    position: relative;
+    top: 12rem;
+    h1, p{
+        @extend %homeFonts;
+        color: white;
+    }
+}
+
+.homeBtn{
+    @extend %homeFonts;
+    position: absolute;
+    bottom: 8rem;
+    color: white;
+    padding: 1.2rem;
+    background-color: transparent;
+    border: 1px white solid;
+    border-radius: 2rem;
+}
+
