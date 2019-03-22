@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ArtistService } from './obsc/service/artist.service';
-import { ArtistModel } from './obsc/model/artist.model';
+import { ArtistService } from './service/artist.service';
+import { ArtistModel } from './model/artist.model';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-obsc',
+  templateUrl: './obsc.component.html',
+  styleUrls: ['./obsc.component.scss'],
   providers: [ArtistService]
 })
 
 
-export class AppComponent {
+export class ObscComponent {
   // title = 'lastfm';
   chosenArtists: ArtistModel[] = [];
   topWeeklyListeners: number;

@@ -1,0 +1,22 @@
+<app-results-display></app-results-display>
+<div class="container">
+    <div class="row">
+        <div class="container justify-content-between d-flex inputContainer">
+            <app-search-artist-input (artistSearched)='artistSearched($event)'></app-search-artist-input>
+        </div>
+    </div>
+    <hr>
+    <div *ngIf='chosenArtists.length == 0 && artist == null'>
+            <h6 id='greetings'>Greetings, to get started, search the name of your favourite musician
+                 using the search bar. </h6>
+    </div>
+    <div class="row">
+        <div class="display-container col-md-12 col-lg-7 d-flex justify-content-start">
+            <app-display-artist></app-display-artist>
+        </div>
+
+        <div class="selected-container d-flex">
+            <app-selected-artist [chosenArtists]='chosenArtists'></app-selected-artist>
+        </div>
+    </div>
+    </div>
