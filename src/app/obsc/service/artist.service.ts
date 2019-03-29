@@ -1,5 +1,8 @@
 import { Injectable, OnInit, EventEmitter } from '@angular/core';
 import { ArtistModel } from '../model/artist.model';
+//get api key from
+//https://www.last.fm/api/account/create
+const api = require('../../apiInfo.json');
 
 
 @Injectable({
@@ -7,11 +10,8 @@ import { ArtistModel } from '../model/artist.model';
 })
 
 export class ArtistService {
-  apiUrl = 'http://ws.audioscrobbler.com/2.0/';
 
-  //get api key from
-  //https://www.last.fm/api/account/create
-  apiKey = '5421292968da1ea7dff6998512c75a8d';
+
   chosenArtists: ArtistModel[] = [];
   artistSearchPing = new EventEmitter<boolean>();
   
@@ -26,7 +26,7 @@ export class ArtistService {
 
  async getArtist(artist: string){
    try { 
-     return fetch(`${this.apiUrl}?method=artist.getinfo&artist=${artist}&api_key=${this.apiKey}&format=json`);
+     return fetch(`${api.url}?method=artist.getinfo&artist=${artist}&api_key=${api.key}&format=json`);
    }
    catch (e) {
      console.log(`error in get-artist call- ${e}`);
@@ -36,7 +36,7 @@ export class ArtistService {
 
  async getTopArtist(){
     try {
-     return fetch(`${this.apiUrl}?method=chart.gettopartists&api_key=${this.apiKey}&format=json`);
+     return fetch(`${api.url}?method=chart.gettopartists&api_key=${api.key}&format=json`);
    }
    catch (e) {
      console.log(`error in get-top-artist call- ${e}`);
