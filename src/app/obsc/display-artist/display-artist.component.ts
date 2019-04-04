@@ -37,8 +37,13 @@ export class DisplayArtistComponent implements OnInit {
   ngOnInit() {
     //get data from the searched artist
     this.artService.artistSearched.subscribe(data=>{
-      this.artist = data.artist;
+      if(data.error == true){
+        this.searchErrorFound = true;
+        return;
+      }
+
       this.searchErrorFound = data.error;
+      this.artist = data.artist;
       this.chosenArtistsLen = data.chosenLen;
       this.exists = false;
       

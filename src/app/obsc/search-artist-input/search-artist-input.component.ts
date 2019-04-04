@@ -57,10 +57,11 @@ export class SearchArtistInputComponent implements OnInit {
          let artist = new ArtistModel(name, image, listeners, obscurity, summary);
 
          //pass the artist into service to be used by other components
-         this.artistSearched.emit(artist)
+         this.artistSearched.emit(artist);
          this.artistinput = '';
        }
       ).catch(e => {
+        console.log('hit error')
         //no artist found - send null artist to root
         this.artistSearched.emit(null);
       })
