@@ -4,6 +4,20 @@
     left: 56%;
 }
 
+.selectedImg{
+    position: relative;
+    left: 7.5rem;
+}
+
+.far{
+    position: relative;
+    top: -4.6rem;
+    left: -2.3rem;
+    color: #e6b97a;
+    padding: 2px 0px 1px 2px;
+    background-color: #8c7ae6;
+}
+
 hr{
     border-bottom: 2px solid #8c7ae6
 }
@@ -20,7 +34,11 @@ span{
 img{
     border: 3px solid #8c7ae6;
     margin-bottom: 5px;
-    float: right;
+    float: none;
+}
+
+.selectImgShift{
+    left: -0.89rem;
 }
 
 @media only screen and (max-width: 1200px){ 
@@ -35,12 +53,27 @@ img{
         left: 16%;
         top: 90px;
     }
+
+    .selectedImg{
+        left: 0;
+    }
+
+    .far{
+        top: -6px;
+        left: 1.42rem;
+    }
+
     span{
         top: 90px;
     }
     
     .shift{
         left: -16%;
+    }
+    
+
+    .iconShift{
+        left: 0.44rem;
     }
 
 }

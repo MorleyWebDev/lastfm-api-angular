@@ -10,8 +10,7 @@
 # dependencies
 /node_modules
 
-#api key
-/src/app/apiInfo.json
+
 
 # profiling files
 chrome-profiler-events.json

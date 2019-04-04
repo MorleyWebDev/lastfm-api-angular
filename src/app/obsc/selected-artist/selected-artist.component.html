@@ -5,8 +5,9 @@
 <hr *ngIf='chosenArtists.length != 3'>
 
 <div [class.shift]='chosenArtists.length == 3' class="selected-artist-container">
-  <div *ngFor='let artist of chosenArtists; let i = index'>
+  <div [class.selectImgShift]='chosenArtists.length == 3' class="selectedImg" *ngFor='let artist of chosenArtists; let i = index'>
     <img [src]='artist.image' style="max-width: 240px">
+    <i [class.iconShift]='chosenArtists.length == 3' (click)="removeSelection(i)" class="far fa-window-close fa-2x" id=i></i>  
   </div>
 </div>
 
