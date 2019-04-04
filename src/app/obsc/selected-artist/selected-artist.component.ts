@@ -15,6 +15,7 @@ export class SelectedArtistComponent implements OnInit {
 
   removeSelection(i){
     this.artService.chosenArtists.splice(i, 1);
+    this.artService.artistSearchPing.emit(true);
   }
 
   ngOnInit() {

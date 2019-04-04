@@ -27,6 +27,7 @@ export class DisplayArtistComponent implements OnInit {
       this.checkBtn(this.artist);
     }
   }
+  
 
   //if the chosen artists array contains the currently selected artist
   //set exists to true - disabling the 'add' button
@@ -35,6 +36,13 @@ export class DisplayArtistComponent implements OnInit {
   }
 
   ngOnInit() {
+    //On search / close refresh the chosen artists array
+    //then check if button should exist
+    this.artService.artistSearchPing.subscribe(()=>{
+      this.chosenArtists = this.artService.chosenArtists;
+      this.checkBtn(this.artist);
+    })
+
     //get data from the searched artist
     this.artService.artistSearched.subscribe(data=>{
       if(data.error == true){

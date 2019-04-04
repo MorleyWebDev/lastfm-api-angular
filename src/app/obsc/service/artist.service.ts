@@ -10,8 +10,6 @@ const api = require('../../apiInfo.json');
 })
 
 export class ArtistService {
-
-
   chosenArtists: ArtistModel[] = [];
   artistSearchPing = new EventEmitter<boolean>();
   
