@@ -61,7 +61,6 @@ export class SearchArtistInputComponent implements OnInit {
          this.artistinput = '';
        }
       ).catch(e => {
-        console.log('hit error')
         //no artist found - send null artist to root
         this.artistSearched.emit(null);
       })

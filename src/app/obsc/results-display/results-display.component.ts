@@ -25,7 +25,7 @@ export class ResultsDisplayComponent implements OnInit {
         this.overallStats.listeners += Math.round(singleartist.listeners);
       })
       this.overallStats.obscurity = Math.round(this.overallStats.obscurity /= 3);
-      $('#modal').modal();
+      $('#modal').modal({backdrop: 'static', keyboard: false});
     })
   }
 
