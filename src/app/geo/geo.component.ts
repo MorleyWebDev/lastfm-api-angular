@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GeoService } from './service/geo.service';
 import { Config } from 'protractor';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-geo',
@@ -9,22 +11,32 @@ import { Config } from 'protractor';
   providers: [GeoService]
 })
 export class GeoComponent implements OnInit {
-
-
+  
+  selectedGeo = new Subject<string>();
+  topArtist: string = "";
 
   constructor(private GeoService: GeoService) { }
 
-
   ngOnInit() {
-    console.log('top 50 artists in malta > ');
-
-    this.GeoService.searchCountry('malta')
+    //to do :
+    // add input field to allow country searching
+    //move this into a listener for the input field
+    this.GeoService.searchCountry('brazil')
     .subscribe
       ((data: {topartists: any}) => {
+        this.GeoService.topGeoArtist.next(data.topartists.artist[0]);
+
         data.topartists.artist.forEach(artist => {
-        console.log(artist);
+        //for each top 50 artists - artist = single artist object
         })
      } 
     );
+
+     this.GeoService.topGeoArtist.subscribe((artist: any) => {
+         this.topArtist = artist.name;
+         //to do : get detailed information about the top artist
+         //from the obsc service.
+         
+     })
   }
 }

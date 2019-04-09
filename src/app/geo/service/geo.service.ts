@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 const api = require('../../apiInfo.json');
+
 
 @Injectable({
   providedIn: 'root'
 })  
 
 export class GeoService {
+
+  topGeoArtist = new Subject<string>();
 
   constructor( private http: HttpClient ) { }
 
